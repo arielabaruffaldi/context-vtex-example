@@ -1,25 +1,38 @@
-import React, { useState } from 'react'
-
-
+import React, { useReducer } from 'react'
 
 // https://kentcdodds.com/blog/how-to-use-react-context-effectively
 
+interface CountReducer {
+  count: number
+}
+
+const reducer = (state: CountReducer, action: any) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return { count: state.count + 1 }
+    case 'DECREMENT':
+      return { count: state.count - 1 }
+    default:
+      return state
+  }
+}
 
 const ContextTest: React.FunctionComponent = () => {
-  const [count, setCount] = useState(0)
+  const [state, dispatch] = useReducer(reducer, { count: 0 })
 
   const increment = () => {
-    setCount(count + 1)
+    dispatch({ type: 'INCREMENT' })
   }
 
   const decrement = () => {
-    setCount(count - 1)
+    dispatch({ type: 'DECREMENT' })
   }
+
 
   return (
     <section className='w-100 vh-50 flex items-center justify-center'>
       <button className='ma3' onClick={decrement}> - </button>
-      <span className='ma3'>{count}</span>
+      <span className='ma3'>{state.count}</span>
       <button className='ma3' onClick={increment}> + </button>
     </section>
   )
