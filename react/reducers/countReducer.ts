@@ -1,4 +1,4 @@
-export const countReducer = (state: CountContext, action: any) => {
+export const CountReducer = (state: CountContext, action: any) => {
   switch (action.type) {
     case 'INCREMENT':
       return {

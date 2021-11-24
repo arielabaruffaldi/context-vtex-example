@@ -1,8 +1,8 @@
 import React, { createContext, useReducer } from 'react';
-import { countReducer } from './../reducers/countReducer';
+import { CountReducer } from '../reducers/CountReducer';
 
 const initialState = {
-  count: 0,
+  count: 1
 }
 
 export const CountContext = createContext<{
@@ -14,7 +14,7 @@ export const CountContext = createContext<{
 });
 
 export const CountProvider: React.FC = ({ children }: any) => {
-  const [state, dispatch] = useReducer(countReducer, initialState);
+  const [state, dispatch] = useReducer(CountReducer, initialState);
 
   return (
     <CountContext.Provider value={{ state, dispatch }}>

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { CountContext } from './contexts/CountContext';
 
-const Counter = () => {
+const Counter: React.FunctionComponent = () => {
   const { state, dispatch } = useContext(CountContext);
 
   const increment = () => {
@@ -11,8 +11,6 @@ const Counter = () => {
   const decrement = () => {
     dispatch({ type: 'DECREMENT' })
   }
-
-  console.log("state", state)
 
   return (
     <section className='w-100 vh-50 flex items-center justify-center'>
