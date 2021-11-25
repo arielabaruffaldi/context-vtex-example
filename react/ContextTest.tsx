@@ -1,10 +1,5 @@
 import React, { useState } from 'react'
 
-
-
-// https://kentcdodds.com/blog/how-to-use-react-context-effectively
-
-
 const ContextTest: React.FunctionComponent = () => {
   const [count, setCount] = useState(0)
 
