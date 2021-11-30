@@ -1,22 +1,21 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+import { CountContext } from './contexts/CountContext';
 
-const Counter = () => {
-  const [count, setCount] = useState(0)
+const Counter: React.FunctionComponent = () => {
+  const { state, dispatch } = useContext(CountContext);
 
   const increment = () => {
-    setCount(count + 1)
+    dispatch({ type: 'INCREMENT' })
   }
 
   const decrement = () => {
-    setCount(count - 1)
+    dispatch({ type: 'DECREMENT' })
   }
-
-  console.log("holi")
 
   return (
     <section className='w-100 vh-50 flex items-center justify-center'>
       <button className='ma3' onClick={decrement}> - </button>
-      <span className='ma3'>{count}</span>
+      <span className='ma3'>{state.count}</span>
       <button className='ma3' onClick={increment}> + </button>
     </section>
   )

@@ -1,13 +1,11 @@
 import { FunctionComponent } from 'react'
 
 declare global {
-  interface StorefrontFunctionComponent<P = {}> extends FunctionComponent<P> {
-    getSchema?(props: P): object
-    schema?: object
+  interface CountContext {
+    count: number;
   }
 
-  interface StorefrontComponent<P = {}, S = {}> extends Component<P, S> {
-    getSchema?(props: P): object
-    schema: object
+  interface CategoriesContext {
+    categories: any[];
   }
 }

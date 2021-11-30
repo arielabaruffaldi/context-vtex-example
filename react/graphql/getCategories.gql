@@ -1,0 +1,12 @@
+query getCategories($pageSize: Int!, $page: Int!) {
+  categories(pageSize: $pageSize, page: $page, term: "")
+    @context(provider: "vtex.catalog-graphql") {
+    items {
+      label:name
+      value:id
+      hasChildrenCategories
+      order
+      fatherCategoryId
+    }
+  }
+}
